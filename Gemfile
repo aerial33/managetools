@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.3.4'
+ruby '2.5.1'
 
 gem 'devise'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
-gem 'pg'
 gem 'puma'
+gem 'pg', '~> 0.18'
 gem 'rails', '5.1.3'
 gem 'redis'
 
@@ -25,3 +25,4 @@ group :development, :test do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
