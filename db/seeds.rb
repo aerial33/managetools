@@ -8,7 +8,7 @@
 User.destroy_all
 
 User.create( email: "fouad@aquiti.fr", password: "aquiti")
-User.create( email: "valerie@aquiti.fr", password: "aquiti")
+User.create( email: "florent@aquiti.fr", password: "aquiti")
 
 
 users = []
