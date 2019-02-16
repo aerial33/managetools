@@ -1,0 +1,9 @@
+<h1>Edit your task: <%= @task.title %> </h1>
+
+<%= simple_form_for @task do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :completed %>
+  <%= f.button :submit %>
+  <%= link_to "return task", task_path %>
+<% end %>

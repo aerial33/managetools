@@ -16,5 +16,19 @@ User.all.each do |user|
   users << user.email
 end
 
+Task.destroy_all
+
+Task.create( title: "Wagon's teaching", content: "Un premier cour avec le wagon sur RubyOnRails", completed: false)
+Task.create( title: "wagon Crud teaching", content: "Un cour sur le CRUD avec Kitt", completed: false)
+Task.create( title: "wagon Rails teaching", content: "Un cour sur Ruby on rails et activerecord", completed: false)
+Task.create( title: "Codeplace first teach", content: "Creation d'un tool-manager moderne", completed: false)
+
+tasks = []
+Task.all.each do |task|
+  tasks << task.title
+end
+
 puts "User email : #{users}"
+puts "Task Title : #{tasks}"
 puts "==========================="
+
