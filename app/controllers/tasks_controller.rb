@@ -1,26 +1,46 @@
 class TasksController < ApplicationController
   before_action :set_task, only:[:show, :edit, :update, :destroy]
+
   def index
     @tasks = Task.all
   end
+
   def show
   end
+
   def new
     @task = Task.new
   end
+
   def create
-    task = Task.create(task_params)
-    redirect_to tasks_path
+    @task = Task.create(task_params)
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
   end
+
   def edit
   end
+
   def update
-    @task.update(task_params)
-    redirect_to task_path
+    respond_to do |format|
+      if @task.update(task_params)
+        format.html { redirect_to @task, notice: 'Task was successfully updated.'}
+      else
+        format.html { render :edit }
+      end
+    end
   end
+
   def destroy
     @task.destroy
-    redirect_to tasks_path
+    respond_to do |format|
+      format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
+    end
   end
 
   private
