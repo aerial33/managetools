@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_task, only:[:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def show
@@ -13,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
+    @task = current_user.tasks.create(task_params)
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
