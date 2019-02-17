@@ -1,11 +1,41 @@
-<h1>Listing Tasks</h1>
+<h1>To do</h1>
 
-<%= link_to "Add a new task", new_task_path %>
-<% @tasks.each do |task| %>
-  <h2><%= task.title %></h2>
+<% @to_do.each do |task| %>
+  <strong><%= task.title %></strong>
   <p><%= task.content %></p>
+  <p><%= task.state %></p>
   <p><%= task.completed %></p>
   <%= link_to "Voir la tache", task_path(task) %> |
   <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
-    "Are your sure?" } %>
+    "Are your sure?" } %> <br>
 <% end %>
+
+<br>
+
+<h1>Doing</h1>
+
+<% @doing.each do |task| %>
+  <strong><%= task.title %></strong>
+  <p><%= task.content %></p>
+  <p><%= task.state %></p>
+  <p><%= task.completed %></p>
+  <%= link_to "Voir la tache", task_path(task) %> |
+  <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
+    "Are your sure?" } %> <br>
+<% end %>
+
+<br>
+
+<h1>Done</h1>
+
+<% @done.each do |task| %>
+  <strong><%= task.title %></strong>
+  <p><%= task.content %></p>
+  <p><%= task.state %></p>
+  <p><%= task.completed %></p>
+  <%= link_to "Voir la tache", task_path(task) %> |
+  <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
+    "Are your sure?" } %> <br>
+<% end %>
+ <br>
+<%= link_to "Add a new task", new_task_path %>

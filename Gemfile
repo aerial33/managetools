@@ -6,7 +6,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'puma'
 gem 'pg', '~> 0.18'
-gem 'rails', '5.2'
+gem 'rails', '5.2.1.1'
 gem 'redis'
 
 gem 'autoprefixer-rails'
