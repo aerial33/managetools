@@ -7,8 +7,8 @@
    <% if task.state == "doing" %>
       <%= link_to 'Mark as to do', change_task_path(task, state: "to_do"), method: :patch %> |
       <%= link_to 'Mark as done', change_task_path(task, state: "done"), method: :patch %>
-    <% else %>
+  <% else %>
       <%= link_to 'Mark as doing', change_task_path(task, state: "doing"), method: :patch %>
-    <% end %>
+  <% end %>
 
 <br>
