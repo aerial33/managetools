@@ -3,11 +3,13 @@
     <%= link_to edit_task_path(task) do %>
       Created <%= time_ago_in_words(task.created_at) %> ago
     <% end %>
+
+  <%= link_to "❌", task_url(task), method: :delete, data: {confirm: "Are you sure?"}, class:"pull-right" %>
+
   </div>
   <div class ="panel-body">
     <strong><%= task.title %></strong> <br>
     <%= task.content %>
-    <%= task.state %>
   </div>
   <div class ="panel-footer text-center">
     <% if task.state == "doing" %>

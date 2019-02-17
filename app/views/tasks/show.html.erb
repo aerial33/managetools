@@ -1,8 +1,7 @@
-<h1><%= @task.title %></h1>
-
-<p><strong>content</strong>: <%= @task.content %></p>
-
-<p><strong>state</strong>: <%= @task.state %></p>
+<div class="text-center">
+  <h1><%= @task.title %></h1>
+  <p><strong>content</strong>: <%= @task.content %></p>
+</div>
 
 <%= link_to "Back to list", tasks_path %> |
 <%= link_to "Edit task", edit_task_path %> |
