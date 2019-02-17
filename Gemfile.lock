@@ -43,6 +43,9 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (9.0.0)
+    auto_html (1.6.4)
+      redcarpet (~> 3.1)
+      rinku (~> 1.5.0)
     autoprefixer-rails (9.4.7)
       execjs
     bcrypt (3.1.12)
@@ -147,10 +150,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redcarpet (3.4.0)
     redis (4.1.0)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
       railties (>= 4.2.0, < 6.0)
+    rinku (1.5.1)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -202,6 +207,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  auto_html (~> 1.6.4)
   autoprefixer-rails
   better_errors
   binding_of_caller

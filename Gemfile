@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'auto_html', '~>1.6.4'
 
 group :development, :test do
   gem 'pry-byebug'
