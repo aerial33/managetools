@@ -2,12 +2,13 @@
 
 <% @to_do.each do |task| %>
   <strong><%= task.title %></strong>
-  <p><%= task.content %></p>
-  <p><%= task.state %></p>
-  <p><%= task.completed %></p>
+  <p><strong>content</strong>: <%= task.content %></p>
+  <p><strong>state</strong>: <%= task.state %></p>
   <%= link_to "Voir la tache", task_path(task) %> |
   <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
-    "Are your sure?" } %> <br>
+    "Are your sure?" } %> |
+    <%= link_to 'Mark as doing', change_task_path(task, state: "doing"), method: :patch %>
+    <br>
 <% end %>
 
 <br>
@@ -16,12 +17,15 @@
 
 <% @doing.each do |task| %>
   <strong><%= task.title %></strong>
-  <p><%= task.content %></p>
-  <p><%= task.state %></p>
-  <p><%= task.completed %></p>
+  <p><strong>content</strong>: <%= task.content %></p>
+  <p><strong>state</strong>: <%= task.state %></p>
   <%= link_to "Voir la tache", task_path(task) %> |
   <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
-    "Are your sure?" } %> <br>
+    "Are your sure?" } %> |
+  <%= link_to 'Mark as to do', change_task_path(task, state: "to_do"), method: :patch %> |
+  <%= link_to 'Mark as done', change_task_path(task, state: "done"), method: :patch %>
+  <br>
+
 <% end %>
 
 <br>
@@ -30,12 +34,14 @@
 
 <% @done.each do |task| %>
   <strong><%= task.title %></strong>
-  <p><%= task.content %></p>
-  <p><%= task.state %></p>
+  <p><strong>content</strong>: <%= task.content %></p>
+  <p><strong>state</strong>: <%= task.state %></p>
   <p><%= task.completed %></p>
   <%= link_to "Voir la tache", task_path(task) %> |
   <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
-    "Are your sure?" } %> <br>
+    "Are your sure?" } %> |
+  <%= link_to 'Mark as doing', change_task_path(task, state: "doing"), method: :patch %>
+  <br>
 <% end %>
  <br>
 <%= link_to "Add a new task", new_task_path %>
