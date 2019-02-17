@@ -49,7 +49,7 @@ class TasksController < ApplicationController
   def change
     @task.update_attributes(state:params[:state])
     respond_to do |format|
-      format.html {redirect_to tasks_url, notice: 'Task was successfully changed'}
+      format.html {redirect_to tasks_url}
     end
   end
 

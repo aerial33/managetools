@@ -1,12 +1,18 @@
-<h1>To do</h1>
-<%= render @to_do %>
-<br>
+ <div class="row">
+   <div class="col-md-4">
+     <h1 class="tex-center">To do</h1>
+     <%= render @to_do %>
+   </div>
+   <div class="col-md-4">
+     <h1 class="tex-center">Doing</h1>
+     <%= render @doing %>
+   </div>
+   <div class="col-md-4">
+     <h1 class="tex-center">Done</h1>
+     <%= render @done %>
+   </div>
+ </div>
 
-<h1>Doing</h1>
-<%= render @doing %>
-<br>
-
-<h1>Done</h1>
-<%= render @done %>
  <br>
+
 <%= link_to "Add a new task", new_task_path %>
