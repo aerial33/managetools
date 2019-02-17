@@ -1,47 +1,12 @@
 <h1>To do</h1>
-
-<% @to_do.each do |task| %>
-  <strong><%= task.title %></strong>
-  <p><strong>content</strong>: <%= task.content %></p>
-  <p><strong>state</strong>: <%= task.state %></p>
-  <%= link_to "Voir la tache", task_path(task) %> |
-  <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
-    "Are your sure?" } %> |
-    <%= link_to 'Mark as doing', change_task_path(task, state: "doing"), method: :patch %>
-    <br>
-<% end %>
-
+<%= render @to_do %>
 <br>
 
 <h1>Doing</h1>
-
-<% @doing.each do |task| %>
-  <strong><%= task.title %></strong>
-  <p><strong>content</strong>: <%= task.content %></p>
-  <p><strong>state</strong>: <%= task.state %></p>
-  <%= link_to "Voir la tache", task_path(task) %> |
-  <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
-    "Are your sure?" } %> |
-  <%= link_to 'Mark as to do', change_task_path(task, state: "to_do"), method: :patch %> |
-  <%= link_to 'Mark as done', change_task_path(task, state: "done"), method: :patch %>
-  <br>
-
-<% end %>
-
+<%= render @doing %>
 <br>
 
 <h1>Done</h1>
-
-<% @done.each do |task| %>
-  <strong><%= task.title %></strong>
-  <p><strong>content</strong>: <%= task.content %></p>
-  <p><strong>state</strong>: <%= task.state %></p>
-  <p><%= task.completed %></p>
-  <%= link_to "Voir la tache", task_path(task) %> |
-  <%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
-    "Are your sure?" } %> |
-  <%= link_to 'Mark as doing', change_task_path(task, state: "doing"), method: :patch %>
-  <br>
-<% end %>
+<%= render @done %>
  <br>
 <%= link_to "Add a new task", new_task_path %>

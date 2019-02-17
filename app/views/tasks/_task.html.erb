@@ -1,0 +1,14 @@
+<strong><%= task.title %></strong>
+<p><strong>content</strong>: <%= task.content %></p>
+<p><strong>state</strong>: <%= task.state %></p>
+<%= link_to "Voir la tache", task_path(task) %> |
+<%= link_to "Delete", task_path(task), method: :delete, data: { confirm:
+  "Are your sure?" } %> |
+   <% if task.state == "doing" %>
+      <%= link_to 'Mark as to do', change_task_path(task, state: "to_do"), method: :patch %> |
+      <%= link_to 'Mark as done', change_task_path(task, state: "done"), method: :patch %>
+    <% else %>
+      <%= link_to 'Mark as doing', change_task_path(task, state: "doing"), method: :patch %>
+    <% end %>
+
+<br>
