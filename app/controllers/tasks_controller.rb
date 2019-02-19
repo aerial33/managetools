@@ -6,6 +6,7 @@ class TasksController < ApplicationController
     @to_do = current_user.tasks.where(state: "to_do")
     @doing = current_user.tasks.where(state: "doing")
     @done = current_user.tasks.where(state: "done")
+    @tasks = policy_scope(Task)
   end
 
   def show
@@ -13,10 +14,12 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    authorize @task
   end
 
   def create
-    @task = current_user.tasks.create(task_params)
+    @task = current_user.tasks.build(task_params)
+    authorize @task
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -58,6 +61,7 @@ class TasksController < ApplicationController
 
   def set_task
     @task = Task.find(params[:id])
+    authorize @task
   end
 
   def task_params

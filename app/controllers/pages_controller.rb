@@ -2,9 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    if current_user
-      redirect_to tasks_path
-    end
+      redirect_to tasks_path if current_user
   end
 
   def about
